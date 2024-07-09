@@ -1,3 +1,3 @@
 # coen-6311-SoftwareEngineering
 
-# Check
+# CheckThis is a new line added to README.md from the terminal.
