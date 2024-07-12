@@ -1,3 +1,4 @@
 # coen-6311-SoftwareEngineering
 
-This is a new line added to README.md on branch C6P0000-1-Test.
+This is the directory for the COEN-6311 Project.
+Group #: 4
