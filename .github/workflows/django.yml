@@ -19,8 +19,8 @@ jobs:
           - 5432:5432
         env:
           POSTGRES_DB: test_db
-          POSTGRES_USER: test_user
-          POSTGRES_PASSWORD: test_password
+          POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
+          POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
         options: >-
           --health-cmd "pg_isready -U ${{ secrets.POSTGRES_USER }}" 
           --health-interval 10s
@@ -44,9 +44,13 @@ jobs:
         pip install -r requirements.txt
 
     - name: Set up database
+      env:
+        DATABASE_URL: postgres://${{ secrets.POSTGRES_USER }}:${{ secrets.POSTGRES_PASSWORD }}@localhost/test_db
       run: |
         python manage.py migrate
 
     - name: Run tests
+      env:
+        DATABASE_URL: postgres://${{ secrets.POSTGRES_USER }}:${{ secrets.POSTGRES_PASSWORD }}@localhost/test_db
       run: |
         python manage.py test
