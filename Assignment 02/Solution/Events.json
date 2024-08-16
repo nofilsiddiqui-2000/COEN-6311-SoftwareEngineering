@@ -1,0 +1,8 @@
+{
+    "event_id": "E001",
+    "title": "Orientation Day",
+    "description": "University orientation for new students",
+    "date": "2024-09-01",
+    "subscribers": ["S001", "S002"]
+}
+  
